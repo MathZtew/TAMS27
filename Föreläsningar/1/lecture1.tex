@@ -1,0 +1,39 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=2.8cm]{geometry}
+\title{Matematisk statistik}
+
+\begin{document}
+\pagenumbering{gobble}
+\maketitle
+\newpage
+\pagenumbering{roman}
+
+\section{Kombinatorik}
+\subsection{Definition}
+\begin{itemize}
+	\item{En permutation är ett arrangemang av ett antal objekt med hännsyn till deras ordning.}
+	\item{En kombination är ett val av ett antal objekt utan hänsyn till deras ordning.}
+\end{itemize}
+
+\subsection{Exempel}
+a) objekt A, B, C , alla permutationer:\\
+	ABC, ACB, BCA, BAC, CAB, CBA
+b) objekt A, B, C , alla kombinationer:\\
+	ABC
+	
+\subsection{Exempel}
+igen objekt A, B, C. Vi väljer ut 2 st.:\\
+	a) alla permuatitioner AB, BA, AC, CA, BC, CB
+	B) alla kombinationer AB, BC, AC\\
+\\
+Hur många möjligheter finns? \underline{Multiplikationsprincipen}\\
+Beteckna ett experiment som utförs i k steg. Låt i för i = 1, 2, ..., k $n_i$ vara antalet sätt som steg i kan utföras på. Då är det totala antalet sätt som experimentet kan utföras på
+\begin{equation*}
+n = n_1, ..., n_k
+\end{equation*}
+
+Beteckning: $n! = 1 * ... * n, n \in N,0! = 1$
+
+\end{document}
