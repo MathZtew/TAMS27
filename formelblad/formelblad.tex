@@ -4,6 +4,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{multicol}
 \usepackage{mathtools}
+\usepackage{graphicx}
 \usepackage[swedish]{babel}
 \usepackage[a4paper, margin=1.0cm]{geometry}
 \title{Matematisk statistik TAMS27 formelblad}
@@ -223,8 +224,31 @@ P(B|A) = \frac{P(A \cap B)}{P(A)}
 \end{equation*}
 \\
 Om en Poissonfördelning används och du skall räkna ut en sannolikhet över flera händelser kan du multiplicera antalet händelser med det originella $\mu$-värdet.\\
-$X \sim Po(\mu)$ och $Y = X_1,X_2,...,X_n$ kan det sägas att $Y \sim Po(n * \mu)$.
-
+$X \sim Po(\mu)$ och $Y = X_1,X_2,...,X_n$ kan det sägas att $Y \sim Po(n * \mu)$.\\
+\\
+\textbf{Markovkedjor}\\
+\underline{definition}: a) Låt $X_0,X_1,...$ vara en följd av stokastiska variabler som kan anta värdena $0,1,2,...,M$. Man säger att systemet är vid tid n i tillståndet $i \in {0,1,...,M}$ om $X_n = i$.
+\begin{center}
+\includegraphics[width=\linewidth]{markov.png}
+\end{center}
+b) Följden $X_0,X_1,...$ bildar en \underline{Markovkedja} om varje gång när systemet är i tillstånd $i \in {0,1,...,M}$ finns det en sannolikhet $p_{ij}$ att systemet kommer att vara i tillstånd j näst. Dvs för alla $i_0,...,i_{n-1},i,j$.
+\begin{equation*}
+p_{ij} = P(X_{n+1} = j | X_n = i, X_{n-1} = i_{n-1}, ..., X_0 = i_0)
+\end{equation*}
+c) Värdena $p_{ij}$, $0 \leq i , j \leq M$, kallas \underline{övergångssannolikhet}. Matrisen $p = [p_{ij}]_{ij} = 0, ..., M$ kallas \underline{övergångsmatris}.\\
+\underline{Anmärkning} $P(X_{n+1} = j | X_n = i, X_{n-1} = i_{n-1}, ... , X_0 = i_0) = p_{ij} = P(X_{n+n} = j | X_n = i)$ \underline{Markovprincipen}.\\
+\underline{Sats} (Chapman-Kolmogorov ekvationer), Låt $p_{ij}^{(n)}$ vara sannolikheten att systemet är i tillstånd $i$ och kommer att vara i tillstånd $j$ efter $n$ steg (tidsenheter). Det gäller att
+\begin{equation*}
+p_{ij}^{(n)} = \sum_{k=0}^M p_{ik}^{(r)} * p_{kj}^{(n-r)}
+\end{equation*}
+för alla $0<r<n$.\\
+\underline{Anmärkningar} 1) Låt
+\begin{equation*}
+P^{(n)} = [p_{ij}^{(n)}]_{i,j = 0,...,M}
+\end{equation*}
+beteckna \underline{n-steg övergångsmatrisen}\\
+Satsen kan skrivas som $$P^{(n)} = p^{(r)} * p^{(n-r)}$$ (matrismultiplikation)\\
+2) I synnerhet $p=p^{(1)}$ och $$p^{(n)} = p*..*p=p^n$$ (matrispotens)
 
 \end{multicols*}
 \end{document}
